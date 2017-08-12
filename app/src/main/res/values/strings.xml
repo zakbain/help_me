@@ -3,4 +3,7 @@
     <string name="title_activity_all_the_buttons">AllTheButtons</string>
     <string name="action_favorite">Favorite</string>
     <string name="action_settings">Settings</string>
+    <string name="action_land_plane">Land</string>
+    <string name="action_cloud_circle_black">Cloud</string>
+    <string name="action_half_star">Star</string>
 </resources>

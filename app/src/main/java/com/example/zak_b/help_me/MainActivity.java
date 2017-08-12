@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         /*
          * Link to Button UI and
          */
-        final Button button = (Button)findViewById(R.id.gotoBanksId);
+        final Button button = (Button)findViewById(R.id.butterflyButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startViewBank();
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void startViewBank() {
-        Intent intent = new Intent(this, ViewBankActivity.class);
+        Intent intent = new Intent(this, ButterflyActivity.class);
         startActivity(intent);
     }
 }

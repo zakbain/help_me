@@ -15,29 +15,35 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-import tasks.Task;
 import tasks.TaskHerder;
 
-public class ViewBankActivity extends AppCompatActivity {
+
+public class ButterflyActivity extends AppCompatActivity {
+    private static double MAX_BUTTERFLY = 12* Math.PI;
+    private static double MIN_BUTTERFLY = 0;
+
     private TaskHerder taskHerder;
-    private int nextX;
-    private int nextY;
+    private double currentX;
+    private double currentY;
 
     private ConstraintLayout centerCanvas;
     private int centerHeight;
     private int centerWidth;
+    private double t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_bank);
+        setContentView(R.layout.activity_butterfly);
 
         // Assign the toolbar so we can populate it
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
         setupAbortListener();
+        setupResetListener();
         findCenterCanvas();
+        setupDrawing();
 
         // Create a task herder.
         String[] names = {"Emilio", "Katya", "Ivanka"};
@@ -50,6 +56,16 @@ public class ViewBankActivity extends AppCompatActivity {
         this.centerCanvas = (ConstraintLayout) findViewById(R.id.centerCanvas);
         this.centerHeight = centerCanvas.getHeight();
         this.centerWidth = centerCanvas.getWidth();
+    }
+
+    private void setupResetListener() {
+        Button abortButton = (Button) findViewById(R.id.resetButton);
+
+        abortButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                recreate();
+            }
+        });
     }
 
     private void setupAbortListener(){
@@ -67,17 +83,55 @@ public class ViewBankActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void createFavView() {
+    private void setupDrawing()
+    {
+        this.currentX = 25;
+        this.currentY = 150;
+        t = 0;
+    }
+
+    private void calculateNextButterfly() {
+        Double a = Math.exp(Math.cos(t));
+        Double b = 2 * Math.cos(4 * t);
+        Double c = Math.pow(Math.sin(t/12), 5);
+
+        this.currentX = (0-1)*250*Math.sin(t) * (a - b - c) + 650;
+        this.currentY = (0-1)*250*Math.cos(t) * (a - b - c) + 1200;
+    }
+
+    private void calculateNextPos() {
+
+    }
+
+    private void drawButterflyView(int resId) {
+        t = MIN_BUTTERFLY;
+
+        while(t < MAX_BUTTERFLY) {
+            calculateNextButterfly();
+            createImageView(resId, this.currentX, this.currentY);
+            t += 0.01;
+        }
+    }
+
+    private void drawRandView(int resId) {
 
         Random rand = new Random();
         int x = rand.nextInt(1000);
-        int y = rand.nextInt(1000);
+        int y = rand.nextInt(1900) + 100;
+
+        createImageView(resId, x, y);
+    }
+
+
+    private void createImageView(int resId, double x, double y) {
+
 
         ImageView heartView = new ImageView(this);
 
-        heartView.setX(x);
-        heartView.setY(y);
-        heartView.setImageResource(R.drawable.ic_favorite_black_48dp);
+        heartView.setX(new Double(x).intValue());
+        heartView.setY(new Double(y).intValue());
+        heartView.setImageResource(resId);
+
         centerCanvas.addView(heartView);
     }
 
@@ -104,7 +158,19 @@ public class ViewBankActivity extends AppCompatActivity {
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
 
-                createFavView();
+                drawButterflyView(R.drawable.ic_favorite_black_18dp);
+                return true;
+            case R.id.action_land_plane:
+                drawRandView(R.drawable.ic_flight_land_black_18dp);
+                return true;
+
+            case R.id.action_half_star:
+                drawRandView(R.drawable.ic_star_half_black_18dp);
+                return true;
+
+            case R.id.action_cloud_circle_black:
+                drawRandView(R.drawable.ic_cloud_circle_black_18dp);
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.

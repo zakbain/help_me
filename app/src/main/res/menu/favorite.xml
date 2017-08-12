@@ -8,4 +8,21 @@
         android:icon="@drawable/ic_favorite_black_48dp"
         android:title="@string/action_favorite"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_land_plane"
+        android:icon="@drawable/ic_flight_land_black_18dp"
+        android:title="@string/action_land_plane"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_cloud_circle_black"
+        android:icon="@drawable/ic_cloud_circle_black_18dp"
+        android:title="@string/action_cloud_circle_black"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_half_star"
+        android:icon="@drawable/ic_star_half_black_18dp"
+        android:title="@string/action_half_star"
+        app:showAsAction="ifRoom"/>
+
 </menu>

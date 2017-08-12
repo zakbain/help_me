@@ -22,7 +22,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             >
         </activity>
-        <activity android:name=".ViewBankActivity">
+        <activity android:name=".ButterflyActivity">
         </activity>
     </application>
 
