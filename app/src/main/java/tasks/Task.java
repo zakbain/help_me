@@ -2,6 +2,7 @@ package tasks;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import users.User;
@@ -51,5 +52,4 @@ public class Task {
         // By default there is no deadline
         this.hasDeadline = false;
     }
-
 }
