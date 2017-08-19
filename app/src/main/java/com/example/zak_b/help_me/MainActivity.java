@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.blackprince.tasks.AddNewTaskActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final Button button = (Button)findViewById(R.id.butterflyButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startViewBank();
+                startAddTask();
             }
         });
     }
@@ -34,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
     protected void startViewBank() {
         Intent intent = new Intent(this, ButterflyActivity.class);
+        startActivity(intent);
+    }
+
+
+    protected void startAddTask() {
+        Intent intent = new Intent(this, AddNewTaskActivity.class);
+        startActivity(intent);
+    }
+
+    protected void startListTasks() {
+        Intent intent = new Intent(this, ListTasksActivity.class);
         startActivity(intent);
     }
 }

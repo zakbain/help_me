@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-import tasks.TaskHerder;
+import com.blackprince.tasks.TaskHerder;
 
 
 public class ButterflyActivity extends AppCompatActivity {
@@ -44,12 +44,6 @@ public class ButterflyActivity extends AppCompatActivity {
         setupResetListener();
         findCenterCanvas();
         setupDrawing();
-
-        // Create a task herder.
-        String[] names = {"Emilio", "Katya", "Ivanka"};
-        String[] descs = {"Fuck", "this", "shit"};
-        taskHerder = new TaskHerder();
-        taskHerder.easyBuildOwnersTasks(names, descs);
     }
 
     private void findCenterCanvas() {
@@ -99,8 +93,13 @@ public class ButterflyActivity extends AppCompatActivity {
         this.currentY = (0-1)*250*Math.cos(t) * (a - b - c) + 1200;
     }
 
-    private void calculateNextPos() {
+    private void drawTextView(String str) {
+        TextView view = new TextView(this);
+        view.setText(str);
+        view.setX(100);
+        view.setY(200);
 
+        centerCanvas.addView(view);
     }
 
     private void drawButterflyView(int resId) {

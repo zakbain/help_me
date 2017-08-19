@@ -1,4 +1,4 @@
-package users;
+package com.blackprince.users;
 
 /**
  * Created by Zak_b on 8/10/2017.
@@ -14,5 +14,9 @@ public class User {
      */
     public User(String name) {
         this.name  = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

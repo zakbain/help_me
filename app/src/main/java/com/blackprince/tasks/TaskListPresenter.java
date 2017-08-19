@@ -1,6 +1,6 @@
-package tasks;
+package com.blackprince.tasks;
 
-import pattern.Presenter;
+import com.blackprince.pattern.Presenter;
 
 /**
  * Created by Zak_b on 8/10/2017.

@@ -24,6 +24,10 @@
         </activity>
         <activity android:name=".ButterflyActivity">
         </activity>
+        <activity android:name=".ListTasksActivity">
+        </activity>
+        <activity android:name="com.blackprince.tasks.AddNewTaskActivity">
+        </activity>
     </application>
 
 </manifest>

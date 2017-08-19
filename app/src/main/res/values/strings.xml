@@ -6,4 +6,5 @@
     <string name="action_land_plane">Land</string>
     <string name="action_cloud_circle_black">Cloud</string>
     <string name="action_half_star">Star</string>
+    <string name="title_activity_view_tasks">ViewTasksActivity</string>
 </resources>

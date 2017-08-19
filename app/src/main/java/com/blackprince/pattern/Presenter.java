@@ -1,4 +1,4 @@
-package pattern;
+package com.blackprince.pattern;
 
 /**
  * Created by Zak_b on 8/10/2017.

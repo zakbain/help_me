@@ -1,11 +1,10 @@
-package tasks;
+package com.blackprince.tasks;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
-import users.User;
+import com.blackprince.users.User;
 
 /**
  * Created by Zak_b on 8/10/2017.
